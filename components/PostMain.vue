@@ -1,5 +1,5 @@
 <template>
-    <div class="flex py-6 border-solid border-2 border-sky-500  ">
+    <div class="flex py-6 ">
         <div @click="isLoggedIn(post.user)" class="cursor-pointer">
             <img class="rounded-full max-h-[60px]" width="60" src="~/assets/images/tiktok-logo.png">
         </div>
@@ -19,8 +19,8 @@
                     Follow
                 </button>
             </div>
-            <div class="text-[15px] pb-0.5 break-words md:max-w-[400px] max-w-[300px]">lorem*2
-
+            <div class="text-[15px] pb-0.5 break-all md:max-w-[400px] max-w-[300px] text-justify ">
+                Lorem, ipsum dolor sit amet consectetur adipisicing elit. Odit ea animi odio ullam earum maiores doloremque,
             </div>
             <div class="text-[14px] text-gray-500 pb-0.5">#fun #cool #SuperAwesome</div>
             <div class="text-[14px] pb-0.5 flex items-center font-semibold">
@@ -70,6 +70,7 @@
 const { $generalStore, $userStore } = useNuxtApp()
 const props = defineProps(['post'])
 const { post } = toRefs(props)
+
 
 const router = useRouter()
 

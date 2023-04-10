@@ -1,17 +1,7 @@
 <template>
-    <div class="w-[100%] relative flex justify-center">
-        <div class="
-                                absolute 
-                                top-6 
-                                z-50 
-                                mx-auto 
-                                bg-black 
-                                bg-opacity-70 
-                                text-white 
-                                px-14 
-                                py-3 
-                                rounded-sm 
-                            " :class="errorType ? 'visible' : 'invisible'">
+    <div class="w-[100%] fixed flex justify-center top-[5%]">
+        <div class="absolute top-6 z-50 mx-auto bg-black bg-opacity-70 text-white px-14 py-3 rounded-sm "
+            :class="errorType ? 'visible' : 'invisible'">
             {{ error }}
         </div>
     </div>
@@ -24,6 +14,7 @@ const { errorType } = toRefs(props)
 let error = ref('')
 
 watch(() => errorType.value, () => {
+
     if (errorType.value == 'caption') {
         error.value = 'Maximum 150 characters.'
     } else if (errorType.value == 'bio') {
@@ -33,5 +24,6 @@ watch(() => errorType.value, () => {
     } else {
         error.value = ''
     }
+    console.log(errorType.value)
 })
 </script>

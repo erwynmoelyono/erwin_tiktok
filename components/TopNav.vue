@@ -1,5 +1,5 @@
 <template>
-    <div id="TopNav" class="fixed bg-white z-50 flex items-center w-full border-b h-[61px]">
+    <div id="TopNav" class="fixed bg-white z-30 flex items-center w-full border-b h-[61px]">
         <div :class="route.fullPath === '/' ? 'max-w-[1150px]' : ''"
             class="flex items-center justify-between w-full px-6 mx-auto">
             <div :class="route.fullPath === '/' ? 'w-[80%]' : 'lg:w-[20%] w-[70%]'">
@@ -23,7 +23,7 @@
                     <span class="px-2 font-medium text-[15px]">Upload</span>
                 </button>
 
-                <div v-if="true" class="flex items-center">
+                <div v-if="!$userStore.id" class="flex items-center">
                     <button @click="$generalStore.isLoginOpen = true"
                         class="flex items-center bg-[#F02C56] text-white border rounded-md px-3 py-[6px]">
                         <span class="mx-4 font-medium text-[15px]">Log in</span>
@@ -59,21 +59,21 @@
 </template>
 
 <script setup>
-// const { $userStore, $generalStore } = useNuxtApp()
+const { $userStore, $generalStore } = useNuxtApp()
 
 const route = useRoute()
 const router = useRouter()
 
 let showMenu = ref(false)
 
-onMounted(() => {
-    document.addEventListener('mouseup', function (e) {
-        let popupMenu = document.getElementById('PopupMenu');
-        if (!popupMenu.contains(e.target)) {
-            showMenu.value = false
-        }
-    });
-})
+// onMounted(() => {
+//     document.addEventListener('mouseup', function (e) {
+//         let popupMenu = document.getElementById('PopupMenu');
+//         if (!popupMenu.contains(e.target)) {
+//             showMenu.value = false
+//         }
+//     });
+// })
 
 const isLoggedIn = () => {
     if ($userStore.id) {

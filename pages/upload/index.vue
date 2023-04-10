@@ -126,13 +126,13 @@ let isUploading = ref(false)
 
 // definePageMeta({ middleware: 'auth' })
 
-// watch(() => caption.value, (caption) => {
-//     if (caption.length >= 150) {
-//         errorType.value = 'caption'
-//         return
-//     }
-//     errorType.value = null
-// })
+watch(() => caption.value, (caption) => {
+    if (caption.length >= 150) {
+        errorType.value = 'caption'
+        return
+    }
+    errorType.value = null
+})
 
 const onChange = () => {
     fileDisplay.value = URL.createObjectURL(file.value.files[0])
